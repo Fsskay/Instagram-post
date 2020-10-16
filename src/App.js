@@ -3,7 +3,7 @@ import './App.css';
 import Collapse1 from '../src/component/Collapse1'
 import {flatternArr} from "./utility"
 import {testStorage} from './testData'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class App extends Component {
     render() {
         console.log('storage',this.state.storage)
         return(
+
             <div className="App">
                 <Collapse1 items={this.state.storage}/>
             </div>
@@ -23,7 +24,7 @@ class App extends Component {
     }
 
 }
-;
+
 
 
 export default App;

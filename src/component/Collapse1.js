@@ -38,7 +38,7 @@ class Collapse1 extends Component{
 
                         <p>{text}</p>
                     </Panel>
-                </Collapse>,
+                </Collapse>
             </div>
         )
     }
