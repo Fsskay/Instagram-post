@@ -9,16 +9,15 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state={
-            storage:flatternArr(testStorage)
+            storage:testStorage
         }
     }
 
     render() {
-
         console.log('storage',this.state.storage)
         return(
             <div className="App">
-                <Collapse1/>
+                <Collapse1 items={this.state.storage}/>
             </div>
         );
     }

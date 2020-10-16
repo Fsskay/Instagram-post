@@ -1,5 +1,5 @@
 import {Button, Collapse} from 'antd';
-import React from "react";
+import React ,{Component}from "react";
 import ImageDemo from "./postImg";
 
 
@@ -11,28 +11,38 @@ const text = `
 `;
 
 
-const Collapse1 = () => (
-    <div>
-        <Collapse defaultActiveKey={['1']} accordion>
-            <Panel header="storage" key="1">
-                <ImageDemo/>
-            </Panel>
-            <Panel header="bedroom" key="2">
-                <p>{text}</p>
-            </Panel>
-            <Panel header="living" key="3">
-                <p>{text}</p>
-            </Panel>
-            <Panel header="dining" key="4">
-                <p>{text}</p>
-            </Panel>
-            <Panel header="other" key="5">
-                <p>{text}</p>
-            </Panel>
-        </Collapse>,
-    </div>
-);
+class Collapse1 extends Component{
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return(
+            <div>
+                <Collapse defaultActiveKey={['1']} accordion>
+                    <Panel header="storage" key="1">
+                        <ImageDemo items={this.props.items} />
+                    </Panel>
+                    <Panel header="bedroom" key="2">
 
+                        <p>{text}</p>
+                    </Panel>
+                    <Panel header="living" key="3">
+
+                        <p>{text}</p>
+                    </Panel>
+                    <Panel header="dining" key="4">
+
+                        <p>{text}</p>
+                    </Panel>
+                    <Panel header="other" key="5">
+
+                        <p>{text}</p>
+                    </Panel>
+                </Collapse>,
+            </div>
+        )
+    }
+}
 
 
 
