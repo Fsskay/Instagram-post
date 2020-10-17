@@ -27,7 +27,7 @@ class App extends Component {
                     <Collapse1 items={this.state.storage} />
                     {/*<Route path="/" exact component={Home}/>*/}
                     {/*<Route path="/Detail" exact component={Detail}/>*/}
-                    <Detail items={this.state.storage}/>
+
                 </div>
             </Router>
         );

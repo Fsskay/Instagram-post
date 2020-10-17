@@ -46,7 +46,7 @@ class Home extends Component{
                         <p>{text}</p>
                     </Panel>
                 </Collapse>
-
+                <Detail DetailOfItem={selectedItem}/>
             </div>
         )
     }
