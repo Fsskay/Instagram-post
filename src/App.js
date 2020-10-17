@@ -4,9 +4,24 @@ import Collapse1 from '../src/component/Collapse1'
 import {flatternArr} from "./utility"
 import {testStorage,testLiving,testBedroom,testDining,testOther} from './testData'
 import 'bootstrap/dist/css/bootstrap.css'
-
 import Detail from './container/Detail'
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import axios from 'axios';
+
+
+console.log('axios', axios);
+
+
+// 为给定 ID 的 user 创建请求
+axios.get('https://www.castlery.com/api/story_bloks/social-images')
+    .then(function (response) {
+        console.log('fdsfdsfdsaf', response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+
 
 class App extends Component {
     constructor(props) {
