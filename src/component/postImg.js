@@ -5,9 +5,6 @@ import {Image} from 'antd'
 class ImageDemo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selectedItem: {}
-        }
     };
 
     selectedItem = (item) => {
@@ -19,12 +16,8 @@ class ImageDemo extends React.Component {
 
 
     render() {
-        const {items} = this.props
+        const {items,onSelectedItems} = this.props
         const parsedDate = parseToYearAndMonth(items.date)
-        console.log(parsedDate, 'parsedDate')
-        console.log(items, 'items')
-
-        console.log('selectedItems',this.state.selectedItem)
 
         return (
             <React.Fragment>
@@ -36,7 +29,8 @@ class ImageDemo extends React.Component {
                                         <div
                                             className="col-xs-6 col-sm-3"
                                             style={{width: 245, overflow: "hidden"}}
-                                            onClick={()=>{console.log({item},'onClick item')}}
+                                            // onClick={()=>{console.log({item},'onClick item')}}
+                                            onClick={(event)=>{onSelectedItems(item)}}
                                         >
                                             <img
                                                 width={245}
@@ -47,7 +41,6 @@ class ImageDemo extends React.Component {
                                                         width={200}
                                                     />
                                                 }
-                                                // onClick={this.getIntoDetail}
                                             />
                                             <p>{item.ig_handle}</p>
                                             <p>{item.date}</p>
