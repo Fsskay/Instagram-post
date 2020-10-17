@@ -2,7 +2,8 @@ import {Button, Collapse} from 'antd';
 import React ,{Component}from "react";
 import ImageDemo from "./postImg";
 import Detail from "../container/Detail";
-
+import withContext from "../WithContext";
+import {withRouter} from 'react-router-dom'
 
 const { Panel } = Collapse;
 const text = `
@@ -12,41 +13,35 @@ const text = `
 `;
 
 
-class Home extends Component{
+class Collapse1 extends Component{
     constructor(props) {
         super(props);
-        this.state=({
-            selectedItem: {}
-        })
+
     }
-    SelectItems = (item) => {
-        this.setState({
-            selectedItem: item
-        })
-    }
+
     render() {
-        const {selectedItem} =this.state
-        console.log('selectedItem',selectedItem)
+
+
         return(
             <div>
                 <Collapse defaultActiveKey={['1']} accordion>
                     <Panel header="storage" key="1">
-                        <ImageDemo items={this.props.items} onSelectedItems={this.SelectItems}/>
+                        <ImageDemo items={this.props.items1} onSelectedItems2={this.props.onSelectedItem}/>
                     </Panel>
                     <Panel header="bedroom" key="2">
-                        <p>{text}</p>
+                        <ImageDemo items={this.props.items3} onSelectedItems2={this.props.onSelectedItem}/>
                     </Panel>
                     <Panel header="living" key="3">
-                        <p>{text}</p>
+                        <ImageDemo items={this.props.items2} onSelectedItems2={this.props.onSelectedItem}/>
                     </Panel>
                     <Panel header="dining" key="4">
-                        <p>{text}</p>
+                        <ImageDemo items={this.props.items4} onSelectedItems2={this.props.onSelectedItem}/>
                     </Panel>
                     <Panel header="other" key="5">
-                        <p>{text}</p>
+                        <ImageDemo items={this.props.items5} onSelectedItems2={this.props.onSelectedItem}/>
                     </Panel>
                 </Collapse>
-                <Detail DetailOfItem={selectedItem}/>
+
             </div>
         )
     }
@@ -54,4 +49,4 @@ class Home extends Component{
 
 
 
-export default Home;
+export default Collapse1;

@@ -16,9 +16,8 @@ class ImageDemo extends React.Component {
 
 
     render() {
-        const {items,onSelectedItems} = this.props
+        const {items,onSelectedItems2} = this.props
         const parsedDate = parseToYearAndMonth(items.date)
-
         return (
             <React.Fragment>
                 <div className="container">
@@ -30,7 +29,7 @@ class ImageDemo extends React.Component {
                                             className="col-xs-6 col-sm-3"
                                             style={{width: 245, overflow: "hidden"}}
                                             // onClick={()=>{console.log({item},'onClick item')}}
-                                            onClick={(event)=>{onSelectedItems(item)}}
+                                            onClick={(event)=>{onSelectedItems2(item)}}
                                         >
                                             <img
                                                 width={245}
@@ -43,7 +42,7 @@ class ImageDemo extends React.Component {
                                                 }
                                             />
                                             <p>{item.ig_handle}</p>
-                                            <p>{item.date}</p>
+                                            <p>{new Date(item.date).toDateString().split(" ")[1]} {new Date(item.date).toDateString().split(" ")[3]}</p>
                                         </div>
                                     )
                                 }

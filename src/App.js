@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Collapse1 from '../src/component/Collapse1'
 import {flatternArr} from "./utility"
-import {testStorage} from './testData'
+import {testStorage,testLiving,testBedroom,testDining,testOther} from './testData'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import Detail from './container/Detail'
@@ -13,10 +13,19 @@ class App extends Component {
         super(props);
         this.state = {
             storage: testStorage,
+            living:testLiving,
+            bedroom:testBedroom,
+            dining:testDining,
+            other:testOther,
             flatternStorage: flatternArr(testStorage),
+            selectedItem: {}
         }
     }
-
+    SelectItems = (item) => {
+        this.setState({
+            selectedItem: item
+        })
+    }
 
     render() {
         console.log('storage', this.state.storage)
@@ -24,15 +33,21 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Collapse1 items={this.state.storage} />
+                    <Collapse1
+                        items1={this.state.storage}
+                        items2={this.state.living}
+                        items3={this.state.bedroom}
+                        items4={this.state.dining}
+                        items5={this.state.other}
+
+                        onSelectedItem={this.SelectItems}/>
                     {/*<Route path="/" exact component={Home}/>*/}
                     {/*<Route path="/Detail" exact component={Detail}/>*/}
-
+                    <Detail DetailOfItem={this.state.selectedItem}/>
                 </div>
             </Router>
         );
     }
-
 }
 
 
