@@ -20,7 +20,7 @@ class Collapse1 extends Component{
             <div>
                 <Collapse defaultActiveKey={['1']} accordion>
                     <Panel header="storage" key="1">
-                        <ImageDemo items={this.props.items} />
+                        <ImageDemo items={this.props.items} onSelectedItems={this.props.SelectItems}/>
                     </Panel>
                     <Panel header="bedroom" key="2">
 
