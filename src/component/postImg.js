@@ -7,6 +7,10 @@ class ImageDemo extends React.Component {
         super(props);
     }
 
+    // getIntoDetail=()=>{
+    //     this.props.history.push('/Detail')
+    // }
+
     render() {
         const {items} = this.props
         const parsedDate = parseToYearAndMonth(items.date)
@@ -14,17 +18,15 @@ class ImageDemo extends React.Component {
         console.log(items, 'items')
         console.log(items.image, 'items.image')
 
-        // const [random, setRandom] = React.useState();
         return (
             <React.Fragment>
                 <div className="container">
-                    <div className="row" style={{textAlign:"center",}}>
+                    <div className="row" style={{textAlign: "center",}}>
                         {
                             items.map((item) => (
-                                <div className="col-xs-6 col-sm-3" style={{width:245,overflow:"hidden"}}>
+                                <div className="col-xs-6 col-sm-3" style={{width: 245, overflow: "hidden"}}>
                                     <Image
                                         width={245}
-                                        // src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
                                         src={item.image}
                                         placeholder={
                                             <Image
@@ -32,6 +34,7 @@ class ImageDemo extends React.Component {
                                                 width={200}
                                             />
                                         }
+                                        // onClick={this.getIntoDetail}
                                     />
                                     <p>{item.ig_handle}</p>
                                     <p>{item.date}</p>

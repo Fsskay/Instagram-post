@@ -3,7 +3,10 @@ import './App.css';
 import Collapse1 from '../src/component/Collapse1'
 import {flatternArr} from "./utility"
 import {testStorage} from './testData'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
+
+import Detail from './container/Detail'
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {
@@ -16,10 +19,14 @@ class App extends Component {
     render() {
         console.log('storage',this.state.storage)
         return(
-
-            <div className="App">
-                <Collapse1 items={this.state.storage}/>
-            </div>
+            <Router>
+                <div className="App">
+                    <Collapse1 items={this.state.storage}/>
+                    {/*<Route path="/" exact component={Home}/>*/}
+                    {/*<Route path="/Detail" exact component={Detail}/>*/}
+                    <Detail items={this.state.storage}/>
+                </div>
+            </Router>
         );
     }
 
