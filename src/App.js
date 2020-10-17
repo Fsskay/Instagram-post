@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import Collapse1 from '../src/component/Collapse1'
 import {flatternArr} from "./utility"
-import {testStorage,testLiving,testBedroom,testDining,testOther} from './testData'
 import 'bootstrap/dist/css/bootstrap.css'
 import Detail from './container/Detail'
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
@@ -12,14 +11,13 @@ import axios from 'axios';
 console.log('axios', axios);
 
 
-// 为给定 ID 的 user 创建请求
-axios.get('/story')
-    .then(function (response) {
-        console.log('fdsfdsfdsaf', response);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+
+function convertResponseData(dataObj){
+    return dataObj.data.content;
+}
+
+
+
 
 
 
@@ -27,12 +25,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            storage: testStorage,
-            living:testLiving,
-            bedroom:testBedroom,
-            dining:testDining,
-            other:testOther,
-            flatternStorage: flatternArr(testStorage),
+            storage: [],
+            living:[],
+            bedroom:[],
+            dining:[],
+            other:[],
             selectedItem: {}
         }
     }
@@ -40,6 +37,24 @@ class App extends Component {
         this.setState({
             selectedItem: item
         })
+    }
+
+    async componentDidMount() {
+        // 为给定 ID 的 user 创建请求
+        const resData = await axios.get('/story')
+
+
+        let {storage, living, bedroom, dining, other} = convertResponseData(resData)
+
+
+        this.setState({
+            storage,
+            living,
+            bedroom,
+            dining,
+            other,
+        })
+
     }
 
     render() {
