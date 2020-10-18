@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import axios from "axios";
 import {convertResponseData} from "../App";
+import {Button, Image} from 'antd'
 
 
 function getContentById(id, data) {
@@ -43,11 +44,11 @@ class LivingDetail extends Component {
         return (
             <React.Fragment>
                 <div style={{textAlign:"center"}}>
-                    <div><img src={this.state.valueOfSelectedItems.image} alt="" style={{width:"60%"}}/></div>
+                    <div><Image src={this.state.valueOfSelectedItems.image} alt="" style={{width:"60%"}}/></div>
                     <div style={{margin: "40px"}}>{this.state.valueOfSelectedItems.content}</div>
-                    <div>{this.state.valueOfSelectedItems.ig_handle}</div>
-                    <div>{new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[1]} {new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[3]}</div>
-                    <button onClick={this.BackToHome}>Back</button>
+                    <div style={{margin: "40px",fontWeight:"bolder"}}>{this.state.valueOfSelectedItems.ig_handle}</div>
+                    <div style={{margin: "40px",fontStyle:"italic"}}>{new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[1]} {new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[3]}</div>
+                    <Button type="primary" size={"large"} onClick={this.BackToHome}>Back</Button>
                 </div>
             </React.Fragment>
         );
