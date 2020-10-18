@@ -40,11 +40,10 @@ class BedroomDetail extends Component {
     }
 
     render() {
-        const {valueOfSelectedItems} = this.state.valueOfSelectedItems
         return (
             <React.Fragment>
                 <div style={{textAlign:"center"}}>
-                    <div><Image src={this.state.valueOfSelectedItems.image} alt="" style={{width:"60%"}}/></div>
+                    <div><Image src={this.state.valueOfSelectedItems.image} alt="" style={{maxWidth:"40%"}}/></div>
                     <div style={{margin: "40px"}}>{this.state.valueOfSelectedItems.content}</div>
                     <div style={{margin: "40px",fontWeight:"bolder"}}>{this.state.valueOfSelectedItems.ig_handle}</div>
                     <div style={{margin: "40px",fontStyle:"italic"}}>{new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[1]} {new Date(this.state.valueOfSelectedItems.date).toDateString().split(" ")[3]}</div>
@@ -55,4 +54,4 @@ class BedroomDetail extends Component {
     }
 }
 
-export default withRouter(BedroomDetail)
+export default withRouter(BedroomDetail)    

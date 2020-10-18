@@ -1,7 +1,6 @@
 import React from 'react';
-import {parseToYearAndMonth} from '../utility'
 import {withRouter} from "react-router-dom";
-
+import {Image} from "antd";
 
 class PostImg extends React.Component {
     constructor(props) {
@@ -23,15 +22,10 @@ class PostImg extends React.Component {
                                         style={{width: 245, overflow: "hidden"}}
 
                                     >
-                                        <img
+                                        <Image
                                             width={245}
                                             src={item.image}
-                                            placeholder={
-                                                <img
-                                                    src={`${item.image}?x-oss-process=image/quality,q_1/resize,w_200`}
-                                                    width={200}
-                                                />
-                                            }
+                                            placeholder={true}
                                             onClick={(event)=>{{
                                                 this.props.history.push(`/${category}/${id}`)
                                             }}}
