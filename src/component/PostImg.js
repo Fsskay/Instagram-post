@@ -20,7 +20,6 @@ class PostImg extends React.Component {
                                     <div
                                         className="col-xs-6 col-sm-3"
                                         style={{width: 245, overflow: "hidden"}}
-
                                     >
                                         <Image
                                             width={245}
