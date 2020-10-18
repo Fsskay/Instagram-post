@@ -1,16 +1,9 @@
 import {Button, Collapse} from 'antd';
 import React ,{Component}from "react";
-import ImageDemo from "./postImg";
-import Detail from "../container/Detail";
-import withContext from "../WithContext";
-import {withRouter} from 'react-router-dom'
+import PostImg from "./PostImg";
+
 
 const { Panel } = Collapse;
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
 
 class Collapse1 extends Component{
@@ -26,19 +19,19 @@ class Collapse1 extends Component{
             <div>
                 <Collapse defaultActiveKey={['1']} accordion>
                     <Panel header="storage" key="1">
-                        <ImageDemo items={this.props.items1} onSelectedItems2={this.props.onSelectedItem}/>
+                        <PostImg items={this.props.items1}  category='storage'/>
                     </Panel>
                     <Panel header="bedroom" key="2">
-                        <ImageDemo items={this.props.items3} onSelectedItems2={this.props.onSelectedItem}/>
+                        <PostImg items={this.props.items3}  category='bedroom'/>
                     </Panel>
                     <Panel header="living" key="3">
-                        <ImageDemo items={this.props.items2} onSelectedItems2={this.props.onSelectedItem}/>
+                        <PostImg items={this.props.items2} category='living'/>
                     </Panel>
                     <Panel header="dining" key="4">
-                        <ImageDemo items={this.props.items4} onSelectedItems2={this.props.onSelectedItem}/>
+                        <PostImg items={this.props.items4}  category='dining'/>
                     </Panel>
                     <Panel header="other" key="5">
-                        <ImageDemo items={this.props.items5} onSelectedItems2={this.props.onSelectedItem}/>
+                        <PostImg items={this.props.items5}  category='other'/>
                     </Panel>
                 </Collapse>
 

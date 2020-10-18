@@ -305,7 +305,7 @@ export const testBedroom = [
         "date": "2020-08-01 23:59",
         "link": "https://www.instagram.com/p/CDVK9uEp8hI/",
         "image": "https://res.cloudinary.com/castlery/image/upload/v1598345239/marketing/Cross-Market/instagram/ugc_interiorsaddict.jpg",
-        "content": "60cm of bedside table width🙌🏻 Loving our new wider bedsides from @castleryau Storage galore and so much space for laptop, mags, headphones, skincare, phone, tea, the odd toy car, books, earrings, hairbands, water, the occasional candle; you know how it is! What are YOUR bedside essentials? See more on my mini bedroom refresh on the blog now, via link in bio. #gifted",
+        "content": "60cm of bedside table width🙌🏻 Loving our new wider bedsides from @castleryau Detail galore and so much space for laptop, mags, headphones, skincare, phone, tea, the odd toy car, books, earrings, hairbands, water, the occasional candle; you know how it is! What are YOUR bedside essentials? See more on my mini bedroom refresh on the blog now, via link in bio. #gifted",
         "disabled": false,
         "variants": "24910",
         "component": "instagram_post",

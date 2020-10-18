@@ -1,25 +1,20 @@
 import React, {Component} from 'react';
 import './App.css';
 import Collapse1 from '../src/component/Collapse1'
-import {flatternArr} from "./utility"
 import 'bootstrap/dist/css/bootstrap.css'
-import Detail from './container/Detail'
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 import axios from 'axios';
+import StorageDetail from "../src/component/StorageDetail";
+import BedroomDetail from "../src/component/BedroomDetail";
+import LivingDetail from "../src/component/LivingDetail";
+import DiningDetail from "../src/component/DiningDetail";
+import OtherDetail from "../src/component/OtherDetail";
 
 
-console.log('axios', axios);
 
-
-
-function convertResponseData(dataObj){
+export function convertResponseData(dataObj){
     return dataObj.data.content;
 }
-
-
-
-
-
 
 class App extends Component {
     constructor(props) {
@@ -33,20 +28,11 @@ class App extends Component {
             selectedItem: {}
         }
     }
-    SelectItems = (item) => {
-        this.setState({
-            selectedItem: item
-        })
-    }
-
     async componentDidMount() {
-        // 为给定 ID 的 user 创建请求
+        // 为给定 ID 的 user 创建请求,取得数据
+        //这部分是主页面的初始化数据
         const resData = await axios.get('/story')
-
-
         let {storage, living, bedroom, dining, other} = convertResponseData(resData)
-
-
         this.setState({
             storage,
             living,
@@ -57,24 +43,33 @@ class App extends Component {
 
     }
 
+
     render() {
-        console.log('storage', this.state.storage)
-        console.log('storage', this.state.flatternStorage)
         return (
             <Router>
-                <div className="App">
-                    <Collapse1
-                        items1={this.state.storage}
-                        items2={this.state.living}
-                        items3={this.state.bedroom}
-                        items4={this.state.dining}
-                        items5={this.state.other}
+                <Switch>
+                    <Route exact path="/">
+                        <Collapse1
+                            items1={this.state.storage}
+                            items2={this.state.living}
+                            items3={this.state.bedroom}
+                            items4={this.state.dining}
+                            items5={this.state.other}
+                            onSelectedItem={this.SelectItems}/>
+                    </Route>
 
-                        onSelectedItem={this.SelectItems}/>
-                    {/*<Route path="/" exact component={Home}/>*/}
-                    {/*<Route path="/Detail" exact component={Detail}/>*/}
-                    <Detail DetailOfItem={this.state.selectedItem}/>
-                </div>
+
+                    <Route exact path="/storage/:id" component={StorageDetail}>
+                    </Route>
+                    <Route exact path="/bedroom/:id" component={BedroomDetail}>
+                    </Route>
+                    <Route exact path="/living/:id" component={LivingDetail}>
+                    </Route>
+                    <Route exact path="/dining/:id" component={DiningDetail}>
+                    </Route>
+                    <Route exact path="/other/:id" component={OtherDetail}>
+                    </Route>
+                </Switch>
             </Router>
         );
     }
